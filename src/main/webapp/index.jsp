@@ -7,10 +7,9 @@
 <title>Legendary Motorsport</title>
 </head>
 <body>
-<%HttpSession sesion=request.getSession();
-sesion.invalidate();%>
+
 <form action="" method="" id="formulario">
-		<p id="login">SuperLigue</p>
+		<p id="login">Legendary Motorsport</p>
 		<div id="soloUsuario">
 			Usuario<br>
 			<input type="text" required id="usuario" name="usuario">
