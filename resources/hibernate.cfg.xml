@@ -3,12 +3,15 @@
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory name="">
-  <property name="hibernate.connection.username">dummy</property>
-  <property name="hibernate.connection.password">dummy</property>
+  <property name="hibernate.connection.username">zamora</property>
+  <property name="hibernate.connection.password">fernando</property>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/coches?useSSL=false</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
+  <mapping class="com.jacaranda.logica.Category"/>
+  <mapping class="com.jacaranda.logica.User"/>
+  <mapping class="com.jacaranda.logica.Cars"/>
  </session-factory>
 </hibernate-configuration>

@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Legendary Motorsport</title>
+<link rel="icon" href="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" type="image/x-icon">
 </head>
 <body>
 
-<form action="" method="" id="formulario">
+<form action="../Coches/login" method="POST" id="formulario">
 		<p id="login">Legendary Motorsport</p>
 		<div id="soloUsuario">
 			Usuario<br>
@@ -16,6 +17,7 @@
 		</div>
 		
 		<br><br>
+		
 		<div id="soloContrasena">
 			Contraseña<br>
 			<input type="password" required id="contrasena" name="contrasena">
