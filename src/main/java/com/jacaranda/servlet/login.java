@@ -33,7 +33,12 @@ public class login extends HttpServlet {
 		String pass = request.getParameter("contrasena");
 		UserDao ud = new UserDao();
 		boolean b = ud.validateUser(user, pass);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if (!b) {
+			response.sendRedirect("errorLogin.jsp");
+		}
+		else {
+			response.sendRedirect("../Coches/main.jsp");
+		}
 	}
 
 	/**

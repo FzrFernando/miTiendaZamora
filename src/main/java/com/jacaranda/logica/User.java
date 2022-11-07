@@ -17,10 +17,6 @@ public class User {
 	private LocalDate date_of_birth;
 	private String gender;
 	private boolean admin;
-	
-	public User() {
-		super();
-	}
 
 	public User(String username, String pass, String first_name, String last_name, LocalDate date_of_birth,
 			String gender, boolean admin) {
@@ -32,6 +28,10 @@ public class User {
 		this.date_of_birth = date_of_birth;
 		this.gender = gender;
 		this.admin = admin;
+	}
+	
+	public User() {
+		super();
 	}
 
 	public String getUsername() {

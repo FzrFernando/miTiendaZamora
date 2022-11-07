@@ -6,7 +6,7 @@
   <property name="hibernate.connection.username">zamora</property>
   <property name="hibernate.connection.password">fernando</property>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/coches?useSSL=false</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/COCHES?useSSL=false</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>

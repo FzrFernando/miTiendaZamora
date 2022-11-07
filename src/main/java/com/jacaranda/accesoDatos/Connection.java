@@ -7,7 +7,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class Connection {
-	
 	private static StandardServiceRegistry sr = new StandardServiceRegistryBuilder().configure().build();
 	private static SessionFactory sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
 	private static Session session = sf.openSession();
@@ -15,5 +14,4 @@ public class Connection {
 	public static Session getSession() {	
 		return session;
 	}
-	
 }
