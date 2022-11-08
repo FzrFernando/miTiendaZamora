@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
-<link rel="stylesheet" href="../css/errorLogin.css">
+<link rel="stylesheet" href="css/errorLogin.css">
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5219/5219070.png" type="image/x-icon">
 </head>
 <body>

@@ -9,7 +9,7 @@
 <link rel="icon" href="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" type="image/x-icon">
 </head>
 <body>
-<form action="/Coches/login" method="POST" id="formulario">
+<form action="login" method="POST" id="formulario">
 		<p id="login">Legendary Motorsport</p>
 		<div id="soloUsuario">
 			<label>Usuario</label><br>

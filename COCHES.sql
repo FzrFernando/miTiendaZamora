@@ -20,14 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `COCHES`
 --
-
+-- CREATE DATABASE COCHES;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CARS`
+-- Estructura de tabla para la tabla COCHES.`CARS`
 --
 
-CREATE TABLE `CARS` (
+CREATE TABLE COCHES.`CARS` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `CARS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `CARS`
+-- Volcado de datos para la tabla COCHES.`CARS`
 --
 
-INSERT INTO `CARS` (`id`, `name`, `description`, `price`, `id_category`) VALUES
+INSERT INTO COCHES.`CARS` (`id`, `name`, `description`, `price`, `id_category`) VALUES
 (1, 'Sportage', 'Kia', '5214.73', 1),
 (2, 'RL', 'Acura', '24293.69', 2),
 (3, 'Sierra 1500', 'GMC', '18348.84', 3),
@@ -112,20 +112,20 @@ INSERT INTO `CARS` (`id`, `name`, `description`, `price`, `id_category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `CATEGORY`
+-- Estructura de tabla para la tabla COCHES.`CATEGORY`
 --
 
-CREATE TABLE `CATEGORY` (
+CREATE TABLE COCHES.`CATEGORY` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `CATEGORY`
+-- Volcado de datos para la tabla COCHES.`CATEGORY`
 --
 
-INSERT INTO `CATEGORY` (`id`, `name`, `description`) VALUES
+INSERT INTO COCHES.`CATEGORY` (`id`, `name`, `description`) VALUES
 (1, 'urbano', 'reducido tamaño y son para circular por la ciudad'),
 (2, 'familiar', 'cinco puertas y techo elevado'),
 (3, 'coupé', 'techo inclinado que les dota de mayor estilo y tienen un potente motor'),
@@ -135,10 +135,10 @@ INSERT INTO `CATEGORY` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `PURCHASE`
+-- Estructura de tabla para la tabla COCHES.`PURCHASE`
 --
 
-CREATE TABLE `PURCHASE` (
+CREATE TABLE COCHES.`PURCHASE` (
   `id_category` int(11) NOT NULL,
   `id_cars` int(11) NOT NULL,
   `amount` int(11) DEFAULT NULL,
@@ -149,10 +149,10 @@ CREATE TABLE `PURCHASE` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `USERS`
+-- Estructura de tabla para la tabla COCHES.`USERS`
 --
 
-CREATE TABLE `USERS` (
+CREATE TABLE COCHES.`USERS` (
   `username` varchar(50) NOT NULL,
   `pass` varchar(50) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
@@ -163,10 +163,10 @@ CREATE TABLE `USERS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `USERS`
+-- Volcado de datos para la tabla COCHES.`USERS`
 --
 
-INSERT INTO `USERS` (`username`, `pass`, `first_name`, `last_name`, `date_of_birth`, `gender`, `admin`) VALUES
+INSERT INTO COCHES.`USERS` (`username`, `pass`, `first_name`, `last_name`, `date_of_birth`, `gender`, `admin`) VALUES
 ('fernando', 'cebdd715d4ecaafee8f147c2e85e0754', 'fernando', 'zamora', '1999-08-04', 'Male', 0),
 ('inma', 'd40dbcae0e7088fc4a7e1768cf8771da', 'inma', 'olias', '1990-08-23', 'Female', 1);
 
@@ -175,30 +175,30 @@ INSERT INTO `USERS` (`username`, `pass`, `first_name`, `last_name`, `date_of_bir
 --
 
 --
--- Indices de la tabla `CARS`
+-- Indices de la tabla COCHES.`CARS`
 --
-ALTER TABLE `CARS`
+ALTER TABLE COCHES.`CARS`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
   ADD KEY `fk_cars` (`id_category`);
 
 --
--- Indices de la tabla `CATEGORY`
+-- Indices de la tabla COCHES.`CATEGORY`
 --
-ALTER TABLE `CATEGORY`
+ALTER TABLE COCHES.`CATEGORY`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `PURCHASE`
+-- Indices de la tabla COCHES.`PURCHASE`
 --
-ALTER TABLE `PURCHASE`
+ALTER TABLE COCHES.`PURCHASE`
   ADD PRIMARY KEY (`id_category`,`id_cars`),
   ADD KEY `fk_purchase2` (`id_cars`);
 
 --
--- Indices de la tabla `USERS`
+-- Indices de la tabla COCHES.`USERS`
 --
-ALTER TABLE `USERS`
+ALTER TABLE COCHES.`USERS`
   ADD PRIMARY KEY (`username`);
 
 --
@@ -206,17 +206,17 @@ ALTER TABLE `USERS`
 --
 
 --
--- Filtros para la tabla `CARS`
+-- Filtros para la tabla COCHES.`CARS`
 --
-ALTER TABLE `CARS`
-  ADD CONSTRAINT `fk_cars` FOREIGN KEY (`id_category`) REFERENCES `CATEGORY` (`id`);
+ALTER TABLE COCHES.`CARS`
+  ADD CONSTRAINT `fk_cars` FOREIGN KEY (`id_category`) REFERENCES COCHES.`CATEGORY` (`id`);
 
 --
--- Filtros para la tabla `PURCHASE`
+-- Filtros para la tabla COCHES.`PURCHASE`
 --
-ALTER TABLE `PURCHASE`
-  ADD CONSTRAINT `fk_purchase1` FOREIGN KEY (`id_category`) REFERENCES `CATEGORY` (`id`),
-  ADD CONSTRAINT `fk_purchase2` FOREIGN KEY (`id_cars`) REFERENCES `CARS` (`id`);
+ALTER TABLE COCHES.`PURCHASE`
+  ADD CONSTRAINT `fk_purchase1` FOREIGN KEY (`id_category`) REFERENCES COCHES.`CATEGORY` (`id`),
+  ADD CONSTRAINT `fk_purchase2` FOREIGN KEY (`id_cars`) REFERENCES COCHES.`CARS` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

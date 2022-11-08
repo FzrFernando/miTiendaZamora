@@ -13,10 +13,10 @@
 <body>
 	<table border="1">
 		<tr>
-			<th>Id</th>
-			<th>Name<th>
-			<th>Description</th>
-			<th>Listar Coches</th>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Listar Coches</td>
 		</tr>
 		<%
 		CategoryDao cd = new CategoryDao();
