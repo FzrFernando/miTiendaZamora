@@ -36,7 +36,7 @@ public class login extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String user = request.getParameter("usuario");
-		String pass = getMD5(request.getParameter("contrasena"));
+		String pass = getMD5(request.getParameter("contrasena")) ;
 		UserDao ud = new UserDao();
 		boolean b = ud.validateUser(user, pass);
 		if (!b) {
