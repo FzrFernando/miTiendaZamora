@@ -46,4 +46,9 @@ public class UserDao {
 		}
 		return valid;
 	}
+	
+	public User findUser(String user) {
+		User u=session.get(User.class, user);
+		return u;
+	}
 }

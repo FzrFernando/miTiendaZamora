@@ -6,7 +6,8 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name="CARS")
 public class Cars {
@@ -18,19 +19,22 @@ public class Cars {
 	private String descripcion;
 	@Column(name="price")
 	private double precio;
-	@ManyToMany
-	List<Category> listCategory;
+	@ManyToOne
+	@JoinColumn(name = "id_category")
+	private Category id_categoria;
 	
-	public Cars() {
-		super();
-	}
 
-	public Cars(int id, String nombre, String descripcion, double precio) {
+	public Cars(int id, String nombre, String descripcion, double precio, Category id_categoria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
+		this.id_categoria = id_categoria;
+	}
+	
+	public Cars() {
+		super();
 	}
 
 	public int getId() {
@@ -64,26 +68,18 @@ public class Cars {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
-	public List<Category> getListCategory() {
-		return listCategory;
-	}
-
-	public void setListCategory(List<Category> listCategory) {
-		this.listCategory = listCategory;
-	}
 	
-	public boolean add(Category c) {
-		return listCategory.add(c);
+	public Category getId_categoria() {
+		return id_categoria;
 	}
-	
-	public boolean remove(Category c) {
-		return listCategory.remove(c);
+
+	public void setId_categoria(Category id_categoria) {
+		this.id_categoria = id_categoria;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descripcion, id, listCategory, nombre, precio);
+		return Objects.hash(descripcion, id, id_categoria, nombre, precio);
 	}
 
 	@Override
@@ -96,15 +92,16 @@ public class Cars {
 			return false;
 		Cars other = (Cars) obj;
 		return Objects.equals(descripcion, other.descripcion) && id == other.id
-				&& Objects.equals(listCategory, other.listCategory) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(id_categoria, other.id_categoria) && Objects.equals(nombre, other.nombre)
 				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio);
 	}
 
 	@Override
 	public String toString() {
 		return "Cars [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
-				+ ", listCategory=" + listCategory + "]";
+				+ ", id_categoria=" + id_categoria + "]";
 	}
+
 	
 	
 }

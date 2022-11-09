@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jacaranda.accesoDatos.CarsDao;
 import com.jacaranda.accesoDatos.UserDao;
 import com.jacaranda.logica.Cars;
+import com.jacaranda.logica.User;
 
 /**
  * Servlet implementation class login
@@ -52,6 +53,7 @@ public class login extends HttpServlet {
 		String pass = getMD5(request.getParameter("contrasena")) ;
 		UserDao ud = new UserDao();
 		boolean b = ud.validateUser(user, pass);
+		User u=ud.findUser(user);
 		if (b) {
 			CarsDao cd=new CarsDao();
 			List<Cars>lista=cd.getCars();
@@ -62,27 +64,50 @@ public class login extends HttpServlet {
 								+"<td>"+i.getNombre()+"</td>"
 								+"<td>"+i.getDescripcion()+"</td>"
 								+"<td>"+i.getPrecio()+"</td>"
+								+"<td>"+i.getId_categoria().getNombre() + "</td>"
 								);
 					}
-					
-			response.getWriter().append("<!DOCTYPE html>\r\n"
-					+ "<html>\r\n"
-					+ "<head>\r\n"
-					+ "    <title>Legendary Motorsport</title>\r\n"
-					+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
-					+ "</head>\r\n"
-					+ "<body>\r\n"
-					+ "    <table border=\"1\">\r\n"
-					+ "        <tr>\r\n"
-					+ "            <th>Id</th>\r\n"
-					+ "            <th>Name</th>\r\n"
-					+ "            <th>Description</th>\r\n"
-					+ "            <th>Precio</th>\r\n"
-					+ "        </tr>\r\n"
-					+ s
-					+ "    </table>\r\n"
-					+ "</body>\r\n"
-					+ "</html>");
+			if (u.isAdmin()) {
+				response.getWriter().append("<!DOCTYPE html>\r\n"
+						+ "<html>\r\n"
+						+ "<head>\r\n"
+						+ "    <title>Legendary Motorsport</title>\r\n"
+						+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
+						+ "</head>\r\n"
+						+ "<body>\r\n"
+						+ "  <button><a href=\"addCoches.jsp\">Añadir Coche</a></button>\r\n"
+						+ "    <table border=\"1\">\r\n"
+						+ "        <tr>\r\n"
+						+ "            <th>Id</th>\r\n"
+						+ "            <th>Name</th>\r\n"
+						+ "            <th>Description</th>\r\n"
+						+ "            <th>Precio</th>\r\n"
+						+ "        </tr>\r\n"
+						+ s
+						+ "    </table>\r\n"
+						+ "</body>\r\n"
+						+ "</html>");
+			}
+			else {
+				response.getWriter().append("<!DOCTYPE html>\r\n"
+						+ "<html>\r\n"
+						+ "<head>\r\n"
+						+ "    <title>Legendary Motorsport</title>\r\n"
+						+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
+						+ "</head>\r\n"
+						+ "<body>\r\n"
+						+ "    <table border=\"1\">\r\n"
+						+ "        <tr>\r\n"
+						+ "            <th>Id</th>\r\n"
+						+ "            <th>Name</th>\r\n"
+						+ "            <th>Description</th>\r\n"
+						+ "            <th>Precio</th>\r\n"
+						+ "        </tr>\r\n"
+						+ s
+						+ "    </table>\r\n"
+						+ "</body>\r\n"
+						+ "</html>");
+			}
 		}
 		else {
 			response.getWriter().append("<!DOCTYPE html>\n"
