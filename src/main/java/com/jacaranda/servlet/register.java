@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jacaranda.accesoDatos.CategoryDao;
+import com.jacaranda.accesoDatos.CarsDao;
 import com.jacaranda.accesoDatos.UserDao;
-import com.jacaranda.logica.Category;
+import com.jacaranda.logica.Cars;
 import com.jacaranda.logica.User;
 
 /**
@@ -49,15 +49,15 @@ public class register extends HttpServlet {
 		UserDao ud = new UserDao();
 		boolean b = ud.addUser(new User(request.getParameter("user"),getMD5(request.getParameter("pass")),request.getParameter("name"),request.getParameter("apellido"),LocalDate.parse(request.getParameter("birth")),request.getParameter("sex"),false));
 		if (b) {
-			CategoryDao cd=new CategoryDao();
-			List<Category>lista=cd.returnCategory();
+			CarsDao cd=new CarsDao();
+			List<Cars>lista=cd.getCars();
 			StringBuilder s=new StringBuilder();
-					for (Category i:lista) {
+					for (Cars i:lista) {
 						s.append("<tr>"
 								+"<td>"+i.getId()+"</td>"
 								+"<td>"+i.getNombre()+"</td>"
 								+"<td>"+i.getDescripcion()+"</td>"
-								+ "<td><a href=\"main.jsp?id=" + i.getId() + "\">Ver Coches</td>"
+								+"<td>"+i.getPrecio()+"</td>"
 								);
 					}
 					
@@ -73,12 +73,29 @@ public class register extends HttpServlet {
 					+ "            <th>Id</th>\r\n"
 					+ "            <th>Name</th>\r\n"
 					+ "            <th>Description</th>\r\n"
-					+ "            <th>Ver Coches</th>\r\n"
+					+ "            <th>Precio</th>\r\n"
 					+ "        </tr>\r\n"
 					+ s
 					+ "    </table>\r\n"
 					+ "</body>\r\n"
 					+ "</html>");
+		}
+		else {
+			response.getWriter().append("<!DOCTYPE html>\n"
+					+ "			<html>\n"
+					+ "			<head>\n"
+					+ "			<meta charset=\"UTF-8\">\n"
+					+ "			<title>Error</title>\n"
+					+ "			<link rel=\"stylesheet\" href=\"css/errorLogin.css\">\n"
+					+ "			<link rel=\"icon\" href=\"https://cdn-icons-png.flaticon.com/512/5219/5219070.png\" type=\"image/x-icon\">\n"
+					+ "			</head>\n"
+					+ "			<body>\n"
+					+ "				<div id=\"contain\">\n"
+					+ "					<img id=image src=\"https://img.freepik.com/vector-gratis/fondo-error-404-rueda-coche-estilo-plano_23-2147761283.jpg\" height=\"30%\" width=\"30%\">\n"
+					+ "					<a href=\"../index.jsp\" id=\"button\">Volver al index</a>\n"
+					+ "				</div>\n"
+					+ "			</body>\n"
+					+ "			</html>");			
 		}
 		//doGet(request, response);
 	}
