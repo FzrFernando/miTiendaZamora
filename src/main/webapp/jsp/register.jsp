@@ -8,7 +8,7 @@
 <link rel="icon" href="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" type="image/x-icon">
 </head>
 <body>
-	<form action="../register" method="POST">
+	<form action="/register" method="POST">
 		<label>Usuario</label>
 		<input type="text" id="user" name="user" required><br>
 		<label>Contraseña</label>

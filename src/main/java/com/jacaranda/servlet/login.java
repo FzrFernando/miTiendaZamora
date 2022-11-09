@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jacaranda.accesoDatos.CarsDao;
 import com.jacaranda.accesoDatos.UserDao;
+import com.jacaranda.logica.Cars;
 
 /**
  * Servlet implementation class login
@@ -35,15 +38,7 @@ public class login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String user = request.getParameter("usuario");
-		String pass = getMD5(request.getParameter("contrasena")) ;
-		UserDao ud = new UserDao();
-		boolean b = ud.validateUser(user, pass);
-		if (!b) {
-			response.sendRedirect("jsp/errorLogin.jsp");
-		} else {
-			response.sendRedirect("jsp/main.jsp");
-		}
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -53,7 +48,60 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String user = request.getParameter("usuario");
+		String pass = getMD5(request.getParameter("contrasena")) ;
+		UserDao ud = new UserDao();
+		boolean b = ud.validateUser(user, pass);
+		if (b) {
+			CarsDao cd=new CarsDao();
+			List<Cars>lista=cd.getCars();
+			StringBuilder s=new StringBuilder();
+					for (Cars i:lista) {
+						s.append("<tr>"
+								+"<td>"+i.getId()+"</td>"
+								+"<td>"+i.getNombre()+"</td>"
+								+"<td>"+i.getDescripcion()+"</td>"
+								+"<td>"+i.getPrecio()+"</td>"
+								);
+					}
+					
+			response.getWriter().append("<!DOCTYPE html>\r\n"
+					+ "<html>\r\n"
+					+ "<head>\r\n"
+					+ "    <title>Legendary Motorsport</title>\r\n"
+					+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
+					+ "</head>\r\n"
+					+ "<body>\r\n"
+					+ "    <table border=\"1\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <th>Id</th>\r\n"
+					+ "            <th>Name</th>\r\n"
+					+ "            <th>Description</th>\r\n"
+					+ "            <th>Precio</th>\r\n"
+					+ "        </tr>\r\n"
+					+ s
+					+ "    </table>\r\n"
+					+ "</body>\r\n"
+					+ "</html>");
+		}
+		else {
+			response.getWriter().append("<!DOCTYPE html>\n"
+					+ "			<html>\n"
+					+ "			<head>\n"
+					+ "			<meta charset=\"UTF-8\">\n"
+					+ "			<title>Error</title>\n"
+					+ "			<link rel=\"stylesheet\" href=\"css/errorLogin.css\">\n"
+					+ "			<link rel=\"icon\" href=\"https://cdn-icons-png.flaticon.com/512/5219/5219070.png\" type=\"image/x-icon\">\n"
+					+ "			</head>\n"
+					+ "			<body>\n"
+					+ "				<div id=\"contain\">\n"
+					+ "					<img id=image src=\"https://img.freepik.com/vector-gratis/fondo-error-404-rueda-coche-estilo-plano_23-2147761283.jpg\" height=\"30%\" width=\"30%\">\n"
+					+ "					<a href=\"../index.jsp\" id=\"button\">Volver al index</a>\n"
+					+ "				</div>\n"
+					+ "			</body>\n"
+					+ "			</html>");			
+		}
+		//doGet(request, response);
 	}
 
 	public static String getMD5(String input) {
