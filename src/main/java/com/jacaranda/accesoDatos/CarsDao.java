@@ -3,11 +3,16 @@ package com.jacaranda.accesoDatos;
 import java.util.ArrayList;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.query.Query;
 
 import com.jacaranda.logica.Cars;
 
 public class CarsDao {
+	StandardServiceRegistry sr;
+	SessionFactory sf;
+	Session session;
 	
 	public static Cars getCars(String name) {
 		Session session = Connection.getSession();
@@ -56,6 +61,11 @@ public class CarsDao {
 		ArrayList<Cars> movie = (ArrayList<Cars>) query.getResultList();
 		
 		return movie;
+	}
+	
+	public Cars findCars(int id) {
+		Cars c1 = (Cars) session.get(Cars.class, id);
+		return c1;
 	}
 	
 }
