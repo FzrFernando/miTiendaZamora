@@ -17,7 +17,6 @@
 	CategoryDao cd = new CategoryDao();
 	List<Category> lista = cd.returnCategory();
 	HttpSession sesion = request.getSession();
-	int id = Integer.parseInt(request.getParameter("id"));
 	String isLogin = (String) sesion.getAttribute("isLogin");
 	String usuario = (String) sesion.getAttribute("usuario");
 	if (isLogin != null && usuario != null && isLogin.equals("True")){
