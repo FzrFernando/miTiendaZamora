@@ -13,17 +13,6 @@
 	HttpSession sesion=request.getSession();
 	String isLogin = (String) sesion.getAttribute("isLogin");
 	String usuario = (String) sesion.getAttribute("usuario");
-	if (isLogin != null && usuario != null && isLogin.equals("True")) {
-	%>
-	<h2 id="usuario">
-		<%
-		out.println("Usuario "+usuario);
-		%>
-	</h2>
-	<%
-	} else {
-	response.sendRedirect("../html/errorLogin.html");
-	}
 	
 	int idCategory = Integer.parseInt(request.getParameter("idCategory"));
 	CarsDao cd = new CarsDao();
@@ -37,7 +26,6 @@
 	if(cd.saveCars(ca)){
 		out.write("Añadido con éxito");
 	}
-	
 	%>
 	
 	<a href="main.jsp?id=<%=idCategory%>">Volver atrás</a>

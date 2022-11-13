@@ -75,13 +75,14 @@ public class login extends HttpServlet {
 						+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
 						+ "</head>\r\n"
 						+ "<body>\r\n"
-						+ "  <button><a href=\"jsp/addCars.jsp\">Añadir Coche</a></button>\r\n"
+						+ "  <button><a href=\"./jsp/addCars.jsp\">Añadir Coche</a></button>\r\n"
 						+ "    <table border=\"1\">\r\n"
 						+ "        <tr>\r\n"
 						+ "            <th>Id</th>\r\n"
 						+ "            <th>Name</th>\r\n"
 						+ "            <th>Description</th>\r\n"
 						+ "            <th>Precio</th>\r\n"
+						+ "            <th>Categoría</th>\r\n"
 						+ "        </tr>\r\n"
 						+ s
 						+ "    </table>\r\n"
@@ -102,6 +103,7 @@ public class login extends HttpServlet {
 						+ "            <th>Name</th>\r\n"
 						+ "            <th>Description</th>\r\n"
 						+ "            <th>Precio</th>\r\n"
+						+ "            <th>Categoría</th>\r\n"
 						+ "        </tr>\r\n"
 						+ s
 						+ "    </table>\r\n"

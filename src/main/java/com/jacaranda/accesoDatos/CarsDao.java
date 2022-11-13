@@ -36,7 +36,7 @@ public class CarsDao {
 		return resultado;
 	}
 	
-	public  static boolean deleteCars(Cars cars) {
+	public static boolean deleteCars(Cars cars) {
 		boolean resultado = false;
 		Session session = Connection.getSession();
 		

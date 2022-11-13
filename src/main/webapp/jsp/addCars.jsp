@@ -14,24 +14,11 @@
 	<h1>Añade un Coche</h1>
 	
 	<%
+	HttpSession sesion=request.getSession();
 	CategoryDao cd = new CategoryDao();
 	List<Category> lista = cd.returnCategory();
-	HttpSession sesion = request.getSession();
-	String isLogin = (String) sesion.getAttribute("isLogin");
-	String usuario = (String) sesion.getAttribute("usuario");
-	if (isLogin != null && usuario != null && isLogin.equals("True")){
 	%>
-	<h2 id="usuario">
-		<% 
-		out.println("Usuario " + usuario);
-		%>
-	</h2>
-	<%
-	} 
-	else {
-		response.sendRedirect("../html/errorLogin.html");
-	}
-	%>
+	
 	<form action="execAdd.jsp">
 		<label>IdCoche</label>
 		<input type="number" name="idCoche" id="idCoche" min="1" required><br>
