@@ -40,7 +40,7 @@
 		</select>
 		<input type="submit" name="boton" id="boton" value="Enviar">
 		<button>
-			<a href="main.jsp">Volver atrás</a>
+			<a href="../login">Volver atrás</a>
 		</button>
 	</form>
 </body>

@@ -13,6 +13,9 @@
 		HttpSession sesion=request.getSession();
 		String isLogin = (String) sesion.getAttribute("isLogin");
 		String usuario = (String) sesion.getAttribute("usuario");
+		String name = (String) sesion.getAttribute("name");
+		String password = (String) sesion.getAttribute("password");
+		
 		 
 		int idCategory = Integer.parseInt(request.getParameter("idCategory"));
 		CarsDao cd = new CarsDao();
@@ -30,7 +33,10 @@
 			out.write("No se pudo añadir el coche porque ya existe uno con ese id!!");
 		}
 	%>
-	
-	<a href="main.jsp?id=<%=idCategory%>">Volver atrás</a>
+	<form action="../login" method="post">
+        <input type="text" value=<%=name%> name="password" hidden="">
+        <input type="text" value=<%=password%> name="user" hidden="">
+        <input type="submit" name="boton" id="boton" value="Volver atrás">
+    </form>
 </body>
 </html>
