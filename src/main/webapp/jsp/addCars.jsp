@@ -14,7 +14,7 @@
 	<h1>Añade un Coche</h1>
 	
 	<%
-	//HttpSession sesion=request.getSession();
+	HttpSession sesion=request.getSession();
 	CategoryDao cd = new CategoryDao();
 	List<Category> lista = cd.returnCategory();
 	%>
