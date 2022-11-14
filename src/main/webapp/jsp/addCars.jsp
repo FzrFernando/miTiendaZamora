@@ -14,12 +14,12 @@
 	<h1>Añade un Coche</h1>
 	
 	<%
-	HttpSession sesion=request.getSession();
+	//HttpSession sesion=request.getSession();
 	CategoryDao cd = new CategoryDao();
 	List<Category> lista = cd.returnCategory();
 	%>
 	
-	<form action="execAdd.jsp">
+	<form action="execAddCar.jsp">
 		<label>IdCoche</label>
 		<input type="number" name="idCoche" id="idCoche" min="1" required><br>
 		<label>Nombre</label>

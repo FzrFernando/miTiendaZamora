@@ -10,21 +10,24 @@
 </head>
 <body>
 	<%
-	HttpSession sesion=request.getSession();
+	/* HttpSession sesion=request.getSession();
 	String isLogin = (String) sesion.getAttribute("isLogin");
 	String usuario = (String) sesion.getAttribute("usuario");
-	
+	 */
 	int idCategory = Integer.parseInt(request.getParameter("idCategory"));
 	CarsDao cd = new CarsDao();
 	CategoryDao cdao = new CategoryDao();
 	Category c = cdao.findCategory(idCategory);
-	Cars ca = new Cars(Integer.parseInt(request.getParameter("idCoche")), request.getParameter("name"),
-			request.getParameter("description"),Double.parseDouble(request.getParameter("price")),c);
-	if(cd.findCars(ca.getId())!=null){
-		out.write("No se pudo añadir el coche porque ya existe uno con ese id!!");
-	}
-	if(cd.saveCars(ca)){
+	Cars ca=new Cars();
+	int idCoche = Integer.parseInt(request.getParameter("idCoche"));
+	if(cd.findCars(idCoche)==null){
+		ca = new Cars(idCoche, request.getParameter("name"),
+				request.getParameter("description"),Double.parseDouble(request.getParameter("price")),c);
+		cd.saveCars(ca);
 		out.write("Añadido con éxito");
+	}
+	else{
+		out.write("No se pudo añadir el coche porque ya existe uno con ese id!!");
 	}
 	%>
 	
