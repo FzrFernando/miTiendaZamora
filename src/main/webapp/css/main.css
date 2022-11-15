@@ -1,0 +1,30 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	height: 100vh;
+}
+
+.grid-container{
+	display:grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: 1fr 1fr 2fr 1fr;
+	grid-template-areas:
+	"header header header"
+	". 		table		."
+	"footer footer footer";
+	height: 100vh;
+}
+
+.header{
+	background: url("") no-repeat;
+	grid-area: header;
+}
+
+section.table{
+	/*Estilo de la tabla*/
+	grid-area: table;
+}
+
+section.footer{
+	/*Estilo del footer*/
+}

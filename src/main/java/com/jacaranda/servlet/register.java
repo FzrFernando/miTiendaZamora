@@ -39,7 +39,7 @@ public class register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		UserDao ud = new UserDao();
-		boolean b = ud.addUser(new User(request.getParameter("user"),getMD5(request.getParameter("pass")),request.getParameter("name"),request.getParameter("apellido"),LocalDate.parse(request.getParameter("birth")),request.getParameter("sex"),false));
+		boolean b = ud.addUser(new User(request.getParameter("user"),login.getMD5(request.getParameter("pass")),request.getParameter("name"),request.getParameter("apellido"),LocalDate.parse(request.getParameter("birth")),request.getParameter("sex"),false));
 		if (b) {
 			CarsDao cd=new CarsDao();
 			List<Cars>lista=cd.getCars();
@@ -58,8 +58,10 @@ public class register extends HttpServlet {
 					+ "<head>\r\n"
 					+ "    <title>Legendary Motorsport</title>\r\n"
 					+ "<link rel=\"icon\" href=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\" type=\"image/x-icon\">\r\n"
+					+ "<link rel=\"stylesheet\" href=\"../css/main.css\">\r\n"
 					+ "</head>\r\n"
 					+ "<body>\r\n"
+					+ "<div class=\"grid-container\">\r\n"
 					+ "    <table border=\"1\">\r\n"
 					+ "        <tr>\r\n"
 					+ "            <th>Id</th>\r\n"
@@ -69,6 +71,7 @@ public class register extends HttpServlet {
 					+ "        </tr>\r\n"
 					+ s
 					+ "    </table>\r\n"
+					+ "</div>\r\n"
 					+ "</body>\r\n"
 					+ "</html>");
 		}
@@ -78,7 +81,7 @@ public class register extends HttpServlet {
 					+ "			<head>\n"
 					+ "			<meta charset=\"UTF-8\">\n"
 					+ "			<title>Error</title>\n"
-					+ "			<link rel=\"stylesheet\" href=\"css/errorLogin.css\">\n"
+					+ "			<link rel=\"stylesheet\" href=\"../css/errorLogin.css\">\n"
 					+ "			<link rel=\"icon\" href=\"https://cdn-icons-png.flaticon.com/512/5219/5219070.png\" type=\"image/x-icon\">\n"
 					+ "			</head>\n"
 					+ "			<body>\n"
@@ -92,20 +95,20 @@ public class register extends HttpServlet {
 		//doGet(request, response);
 	}
 	
-	public static String getMD5(String input) {
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] messageDigest = md.digest(input.getBytes());
-			BigInteger number = new BigInteger(1, messageDigest);
-			String hashtext = number.toString(16);
-
-			while (hashtext.length() < 32) {
-				hashtext = "0" + hashtext;
-			}
-			return hashtext;
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-	}
+//	public static String getMD5(String input) {
+//		try {
+//			MessageDigest md = MessageDigest.getInstance("MD5");
+//			byte[] messageDigest = md.digest(input.getBytes());
+//			BigInteger number = new BigInteger(1, messageDigest);
+//			String hashtext = number.toString(16);
+//
+//			while (hashtext.length() < 32) {
+//				hashtext = "0" + hashtext;
+//			}
+//			return hashtext;
+//		} catch (NoSuchAlgorithmException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}
 
 }
