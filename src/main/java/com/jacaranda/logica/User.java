@@ -25,7 +25,7 @@ public class User {
 		this.pass = pass;
 		this.first_name = first_name;
 		this.last_name = last_name;
-		this.date_of_birth = date_of_birth.plusDays(1);
+		this.date_of_birth = date_of_birth;
 		this.gender = gender;
 		this.admin = admin;
 	}
