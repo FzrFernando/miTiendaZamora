@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "f76765b2-67de-4524-a584-6b57f512d4cf",
+		"name": "TiendaZamoraPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24469568"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/index.jsp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"index.jsp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/jsp/register.jsp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"jsp",
+						"register.jsp"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Coche Añadido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/jsp/execAddCar.jsp?idCoche=98&name=Ateca&description=Seat&price=30500.41&idCategory=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"jsp",
+						"execAddCar.jsp"
+					],
+					"query": [
+						{
+							"key": "idCoche",
+							"value": "98"
+						},
+						{
+							"key": "name",
+							"value": "Ateca"
+						},
+						{
+							"key": "description",
+							"value": "Seat"
+						},
+						{
+							"key": "price",
+							"value": "30500.41"
+						},
+						{
+							"key": "idCategory",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/register?user=javi&pass=javi&name=javi&apellido=martinez&birth=25/03/2001&sex=H",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"register"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "javi"
+						},
+						{
+							"key": "pass",
+							"value": "javi"
+						},
+						{
+							"key": "name",
+							"value": "javi"
+						},
+						{
+							"key": "apellido",
+							"value": "martinez"
+						},
+						{
+							"key": "birth",
+							"value": "25/03/2001"
+						},
+						{
+							"key": "sex",
+							"value": "H"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsuarioBien",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/login?user=inma&pass=inma",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"login"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "inma"
+						},
+						{
+							"key": "pass",
+							"value": "inma"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsuarioMal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Coches/login?user=antonio&pass=antonio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Coches",
+						"login"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "antonio"
+						},
+						{
+							"key": "pass",
+							"value": "antonio"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

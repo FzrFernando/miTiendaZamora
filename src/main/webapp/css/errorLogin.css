@@ -1,51 +1,61 @@
 @charset "UTF-8";
-#contain{
-	text-align: center;
-	margin: 0 auto;
-	position: relative;
+body{
+	margin: 0;
+	height: 100vh;
+	overflow-y:hidden;
+	background-color: #ffd93b;
 }
 
-#image{
-	position: relative;
-	top: 130px;
-  	left: 0;
-  	bottom: 0;
-  	right: 0;
-  	margin: auto;
+.grid-container{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+	". . ."
+	".	imagen		."
+	". boton .";
+	height: 100vh;
+}
+
+section.imagen{
+	grid-area: imagen;
+	align-content: center;
+}
+
+section.boton{
+	grid-area: boton;
+	align-items: center;
 }
 
 #button{
-	position: relative;
-	top: 180px;
-  	left: 0;
-  	bottom: 0;
-  	right: 0;
-  	margin: auto;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	left:46%;
+	background-color:  #818181;
+	border: 2px solid #474747;
+	padding: 8px;
 }
 
-a{
+#button:hover {
 	text-decoration: none;
-	background-color: #B72929;
 	color: white;
 	font-weight: bold;
+	position: absolute;
+	left:46%;
+	background-color:  #818181;
+	border: 2px solid #474747;
 	padding: 8px;
-	border:3px solid #641313;
 }
 
-a:hover {
+#button:visited {
 	text-decoration: none;
-	background-color: #B72929;
 	color: white;
 	font-weight: bold;
+	position: absolute;
+	left:46%;
+	background-color:  #818181;
+	border: 2px solid #474747;
 	padding: 8px;
-	border:3px solid #641313;
-	}
-
-a:visited {
-	text-decoration: none;
-	background-color: #B72929;
-	color: white;
-	font-weight: bold;
-	padding: 8px;
-	border:3px solid #641313;
-	}
+}
