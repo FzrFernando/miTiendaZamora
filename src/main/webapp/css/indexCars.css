@@ -1,0 +1,79 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	height: 100vh;
+	overflow-y:hidden;
+	overflow-x:hidden;
+}
+
+.grid-container{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 12fr 1fr;
+	grid-template-areas:
+	"header header header"
+	"form	img		img"
+	"footer footer footer";
+	height: 100vh;
+}
+
+.header{
+	background-color:  #818181;
+	border: 2px solid #474747;
+	grid-area: header;
+}
+
+section.form{
+	/*Estilo de la tabla*/
+	grid-area: form;
+}
+
+label{
+	color: #641313;
+	font-weight: bold;
+}
+
+.form button, #boton{
+	text-decoration: none;
+	background-color: #B72929;
+	color: white;
+	font-weight: bold;
+	padding: 8px;
+	border:3px solid #641313;
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+.form a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+.form a:hover {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+.form a:visited {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+section.img{
+	grid-area:img;
+}
+
+section.footer{
+	/*Estilo del footer*/
+	background-color: #5E605D;
+	color: white;
+	grid-area:footer;
+}
+
+.footer p{
+	color: white;
+	text-align: center;
+}
