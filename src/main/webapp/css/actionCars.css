@@ -1,15 +1,17 @@
+@charset "UTF-8";
 body{
 	margin: 0;
 	height: 100vh;
+	overflow-y:hidden;
 }
 
 .grid-container{
 	display:grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 12fr 1fr;
 	grid-template-areas:
 	"header header header"
-	"left	table		."
+	"form	img		img"
 	"footer footer footer";
 	height: 100vh;
 }
@@ -20,34 +22,16 @@ body{
 	grid-area: header;
 }
 
-section.table{
+section.form{
 	/*Estilo de la tabla*/
-	grid-area: table;
+	grid-area: form;
+}
+h1, label{
+	color: #641313;
+	font-weight: bold;
 }
 
-table{
-	margin-left:3%;
-	text-align: center;
-	border-style: solid;
-  	border-radius: 8px;
-  	border-width: 2px;
-  	border-color: #641313;
-}
-
-tr,td,th{
-	border: 2px solid #641313;
-	border-radius: 8px;
-	background-color: white;
-	padding: 2px;
-}
-
-
-section.left{
-	grid-area: left;
-}
-
-
-.left button{
+.form button, #boton{
 	text-decoration: none;
 	background-color: #B72929;
 	color: white;
@@ -58,23 +42,27 @@ section.left{
 	margin-left: 5%;
 }
 
-.left a{
+.form a{
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
 }
 
-.left a:hover {
+.form a:hover {
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
-	}
+}
 
-.left a:visited {
+.form a:visited {
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
-	}
+}
+
+section.img{
+	grid-area:img;
+}
 
 section.footer{
 	/*Estilo del footer*/
