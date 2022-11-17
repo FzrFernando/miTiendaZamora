@@ -16,7 +16,7 @@
 	<section class="form">
 		<form action="login" method="POST" id="formulario">
 		<label>Usuario:</label>
-		<input type="text" required id="usuario" name="usuario"><br>
+		<input type="text" required id="usuario" name="usuario"><br><br>
 		<label>Contraseña:</label>
 		<input type="password" required id="contrasena" name="contrasena"><br>
 		<input type="submit" value="Iniciar Sesión" id="boton"><br><br>
