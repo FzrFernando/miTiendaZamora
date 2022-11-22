@@ -25,17 +25,16 @@ public class Purchase {
 	@Column(name="price")
 	private double price;
 	@Id
-	@ManyToOne
 	@JoinColumn(name="date_of_purchase")
 	private LocalDateTime date_of_purchase;
 	
-	public Purchase(int id_category, int id_cars, int amount, double price, LocalDateTime date_of_purchase) {
+	public Purchase(int id_category, int id_cars, int amount, double price) {
 		super();
 		this.id_category = id_category;
 		this.id_cars = id_cars;
 		this.amount = amount;
 		this.price = price;
-		this.date_of_purchase = date_of_purchase;
+		this.date_of_purchase = LocalDateTime.now();
 	}
 
 	public Purchase() {

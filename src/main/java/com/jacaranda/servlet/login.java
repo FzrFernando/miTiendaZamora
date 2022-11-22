@@ -1,3 +1,4 @@
+
 package com.jacaranda.servlet;
 
 import java.io.IOException;
@@ -55,6 +56,11 @@ public class login extends HttpServlet {
 								+"<td>"+i.getDescripcion()+"</td>"
 								+"<td>"+i.getPrecio()+"</td>"
 								+"<td>"+i.getId_categoria().getNombre() + "</td>"
+								+"<form action=\"./jsp/cart.jsp\" method=\"POST\">"
+								+ "<td>"
+								+ "<input type=\"submit\" name=\"boton\" id=\"boton\" value=\"Enviar\">"
+								+ "</td>"
+								+ "</form>"
 								);
 					}
 			if (u.isAdmin()) {
@@ -81,6 +87,7 @@ public class login extends HttpServlet {
 						+ "            		<th>Description</th>\r\n"
 						+ "            		<th>Precio</th>\r\n"
 						+ "            		<th>Categoría</th>\r\n"
+						+ "					<th>Añadir</th>\r\n"
 						+ "        		</tr>\r\n"
 						+ s
 						+ "    		</table>\r\n"
