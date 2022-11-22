@@ -58,7 +58,7 @@ public class login extends HttpServlet {
 								+"<td>"+i.getId_categoria().getNombre() + "</td>"
 								+"<form action=\"./jsp/cart.jsp\" method=\"POST\">"
 								+ "<td>"
-								+ "<input type=\"submit\" name=\"boton\" id=\"boton\" value=\"Enviar\">"
+								+ "<input type=\"submit\" >"
 								+ "</td>"
 								+ "</form>"
 								);
