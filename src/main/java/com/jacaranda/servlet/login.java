@@ -107,6 +107,7 @@ public class login extends HttpServlet {
 						+ "<div class=\"grid-container\">\r\n"
 						+ "	<header class=\"header\">\r\n"
 						+ "		<img src=\"https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png\"  width=\"195px\" height=\"126px\">\r\n"
+						+ "		<a href=\"./jsp/cart.jsp\"><img id=\"cart\" src=\"https://cdn-icons-png.flaticon.com/512/4315/4315326.png\"></a>"
 						+ "	</header>\r\n"
 						+ "	<section class=\"table\">\r\n"	
 						+ "    <table border=\"1\">\r\n"
