@@ -40,6 +40,54 @@ public class Purchase {
 	public Purchase() {
 		super();
 	}
+
+	public int getId_category() {
+		return id_category;
+	}
+
+	public void setId_category(int id_category) {
+		this.id_category = id_category;
+	}
+
+	public int getId_cars() {
+		return id_cars;
+	}
+
+	public void setId_cars(int id_cars) {
+		this.id_cars = id_cars;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public LocalDateTime getDate_of_purchase() {
+		return date_of_purchase;
+	}
+
+	public void setDate_of_purchase(LocalDateTime date_of_purchase) {
+		this.date_of_purchase = date_of_purchase;
+	}
+
+	@Override
+	public String toString() {
+		return "Purchase [id_category=" + id_category + ", id_cars=" + id_cars + ", amount=" + amount + ", price="
+				+ price + ", date_of_purchase=" + date_of_purchase + "]";
+	}
+	
+	
 	
 	
 }

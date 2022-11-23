@@ -56,6 +56,12 @@ public class login extends HttpServlet {
 								+"<td>"+i.getDescripcion()+"</td>"
 								+"<td>"+i.getPrecio()+"</td>"
 								+"<td>"+i.getId_categoria().getNombre() + "</td>"
+								+"<td>"+"<form action=\"./jsp/cart.jsp\">"
+								+"<input type=\"number\"min=\0\" name=\"cant\"placeholder=\"Intoduzca Cantidad\">"
+								+"<input type=\"hidden\" name=\"name\"value="+ i.getId()+">"
+								+"<input type=\"submit\" value=\"Añadir al carrito\">"+"</form>"
+								+"</td>"
+								+"</tr>"
 								);
 					}
 			if (u.isAdmin()) {
@@ -117,6 +123,7 @@ public class login extends HttpServlet {
 						+ "            <th>Description</th>\r\n"
 						+ "            <th>Precio</th>\r\n"
 						+ "            <th>Categoría</th>\r\n"
+						+ "				<th>Añadir</th>\r\n"
 						+ "        </tr>\r\n"
 						+ s
 						+ "    </table>\r\n"

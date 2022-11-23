@@ -1,17 +1,17 @@
 package com.jacaranda.logica;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Cart {
 	
-	private List<ItemCart> cart;
+	private ArrayList<ItemCart> cart;
 
 	public Cart() {
 		super();
-		cart = null;
+		cart = new ArrayList<ItemCart>();
 	}
 
-	public List<ItemCart> getCart() {
+	public ArrayList<ItemCart> getCart() {
 		return cart;
 	}
 

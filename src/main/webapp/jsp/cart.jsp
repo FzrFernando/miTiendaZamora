@@ -13,11 +13,21 @@
 <body>
 	<%
 	HttpSession sesion=request.getSession();
-	CategoryDao cd = new CategoryDao();
-	List<Category> lista = cd.returnCategory();
+	int idCar = Integer.parseInt(request.getParameter("name"));
+	int cant = Integer.parseInt(request.getParameter("cant"));
 	%>
-	<form action="">
-		<input type="submit" name="boton" id="boton" value="Comprar">
+	<table border="1">
+		<tr>
+			<th>IdCar</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Amount</th>
+		</tr>
+	</table>	
+	<form action="../login" method="post">
+		<input type="hidden" name="nom" value="<%=sesion.getAttribute("user")%>">
+		<input type="hidden" name="pass" value="<%=sesion.getAttribute("pass")%>">
+		<input type="submit" value="Volver">
 	</form>
 </body>
 </html>
