@@ -13,11 +13,11 @@ public class ItemCart {
 		this.cant = cant;
 	}
 
-	public int getIdCart() {
+	public int getIdCar() {
 		return idCar;
 	}
 
-	public void setIdCart(int idCar) {
+	public void setIdCar(int idCar) {
 		this.idCar = idCar;
 	}
 
