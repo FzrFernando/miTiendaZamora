@@ -31,6 +31,9 @@
 			out.write("No se pudo añadir el coche porque ya existe uno con ese id!!");
 		}
 	%>
-	<a href="../login">Volver atrás</a>
+	<form action="login" method="POST">
+		<input type="text" value="<%=usuario%>" hidden="">
+		<input type="submit" value="volver">
+	</form>
 </body>
 </html>

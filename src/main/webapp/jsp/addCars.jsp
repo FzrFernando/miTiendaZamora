@@ -45,9 +45,6 @@
 			</select>
 			<br>
 			<input type="submit" name="boton" id="boton" value="Enviar">
-			<button>
-				<a href="../login">Volver atrás</a>
-			</button>
 		</form>
 	</section>
 	<section class="img">

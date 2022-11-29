@@ -19,17 +19,20 @@ public class Cars {
 	private String descripcion;
 	@Column(name="price")
 	private double precio;
+	@Column(name="stock")
+	private int stock;
 	@ManyToOne
 	@JoinColumn(name = "id_category")
 	private Category id_categoria;
 	
 
-	public Cars(int id, String nombre, String descripcion, double precio, Category id_categoria) {
+	public Cars(int id, String nombre, String descripcion, double precio, int stock, Category id_categoria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
+		this.stock = stock;
 		this.id_categoria = id_categoria;
 	}
 	
@@ -69,6 +72,14 @@ public class Cars {
 		this.precio = precio;
 	}
 	
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
 	public Category getId_categoria() {
 		return id_categoria;
 	}

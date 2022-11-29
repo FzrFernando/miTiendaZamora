@@ -9,6 +9,10 @@
 <link rel="icon" href="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" type="image/x-icon">
 </head>
 <body>
+<%
+HttpSession sesion=request.getSession();
+sesion.invalidate();
+%>
 <div class="grid-container">
 	<header class="header">
 		<img src="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" width=195px height=126px>

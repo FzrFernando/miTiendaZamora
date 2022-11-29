@@ -10,20 +10,14 @@ import com.jacaranda.logica.User;
 
 public class UserDao {
 	
-	StandardServiceRegistry sr;
-	SessionFactory sf;
-	Session session;
-	
 	public UserDao() {
 		super();
-		this.sr = new StandardServiceRegistryBuilder().configure().build();
-		this.sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
-		this.session = sf.openSession();
 	}
 	
-	public boolean validateUser(String login, String password) {
+	public static boolean validateUser(String login, String password) {
+		Session sesion=ConnectionBD.getSession();
 		boolean valid = false;
-		User u = (User) session.get(User.class,login);
+		User u = (User) sesion.get(User.class,login);
 		if (u==null) {
 			u=new User();
 		}else {
@@ -34,12 +28,13 @@ public class UserDao {
 		return valid;
 	}
 	
-	public boolean addUser(User u) {
+	public static boolean addUser(User u) {
+		Session sesion=ConnectionBD.getSession();
 		boolean valid=false;
 		try {
-			session.getTransaction().begin();
-			session.saveOrUpdate(u);
-			session.getTransaction().commit();
+			sesion.getTransaction().begin();
+			sesion.saveOrUpdate(u);
+			sesion.getTransaction().commit();
 			valid=true;
 		}catch (Exception e) {
 			e.getMessage();
@@ -47,8 +42,9 @@ public class UserDao {
 		return valid;
 	}
 	
-	public User findUser(String user) {
-		User u=session.get(User.class, user);
+	public static User findUser(String user) {
+		Session sesion=ConnectionBD.getSession();
+		User u=sesion.get(User.class, user);
 		return u;
 	}
 }

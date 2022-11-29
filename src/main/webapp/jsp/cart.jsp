@@ -17,6 +17,7 @@
 	int idCar = Integer.parseInt(request.getParameter("name"));
 	int cant = Integer.parseInt(request.getParameter("cant"));
 	Cart c = new Cart();
+	c = (Cart) sesion.getAttribute("cart");
 	ItemCart ic = new ItemCart(idCar, cant);
 	c.addCart(ic);
 	CarsDao cd = new CarsDao();
@@ -46,5 +47,8 @@
 		<input type="hidden" name="pass" value="<%=sesion.getAttribute("password")%>">
 		<input type="submit" value="Volver">
 	</form>
+	<button>
+		<a href="buy.jsp">Comprar</a>
+	</button>
 </body>
 </html>

@@ -18,17 +18,15 @@ public class CarsDao {
 	
 	public CarsDao() {
 		super();
-		this.sr = new StandardServiceRegistryBuilder().configure().build();
-		this.sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
-		this.session = sf.openSession();
 	}
 	
-	public boolean addCars(Cars c) {
+	public static boolean addCars(Cars c) {
+		Session sesion=ConnectionBD.getSession();
 		boolean resul = false;
 		try {
-			session.getTransaction().begin();
-			session.saveOrUpdate(c);
-			session.getTransaction().commit();
+			sesion.getTransaction().begin();
+			sesion.saveOrUpdate(c);
+			sesion.getTransaction().commit();
 			resul = true;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -36,13 +34,14 @@ public class CarsDao {
 		return resul;
 	}
 	
-	public boolean deleteCars(int id) {
+	public static boolean deleteCars(int id) {
+		Session sesion=ConnectionBD.getSession();
 		boolean resul = false;
 		try {
-			Cars c = (Cars) session.get(Cars.class, id);
-			session.getTransaction().begin();
-			session.delete(c);
-			session.getTransaction().commit();
+			Cars c = (Cars) sesion.get(Cars.class, id);
+			sesion.getTransaction().begin();
+			sesion.delete(c);
+			sesion.getTransaction().commit();
 			resul = true;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -50,13 +49,15 @@ public class CarsDao {
 		return resul;
 	}
 	
-	public Cars findCars(int id) {
-		Cars c = (Cars) session.get(Cars.class, id);
+	public static Cars findCars(int id) {
+		Session sesion=ConnectionBD.getSession();
+		Cars c = (Cars) sesion.get(Cars.class, id);
 		return c;
 	}
 	
-	public List<Cars> getCars() {
-		Query query = session.createQuery("SELECT c FROM com.jacaranda.logica.Cars c");
+	public static List<Cars> getCars() {
+		Session sesion=ConnectionBD.getSession();
+		Query query = sesion.createQuery("SELECT c FROM com.jacaranda.logica.Cars c");
 		List<Cars> coches = (List<Cars>) query.getResultList();
 		return coches;
 	}

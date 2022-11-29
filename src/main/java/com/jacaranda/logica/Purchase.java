@@ -14,12 +14,12 @@ import javax.persistence.ManyToOne;
 public class Purchase {
 	@Id
 	@ManyToOne
-	@JoinColumn(name="id_category")
-	private int id_category;
+	@JoinColumn(name="username")
+	private User username;
 	@Id
 	@ManyToOne
 	@JoinColumn(name="id_cars")
-	private int id_cars;
+	private Cars id_cars;
 	@Column(name="amount")
 	private int amount;
 	@Column(name="price")
@@ -28,9 +28,9 @@ public class Purchase {
 	@JoinColumn(name="date_of_purchase")
 	private LocalDateTime date_of_purchase;
 	
-	public Purchase(int id_category, int id_cars, int amount, double price) {
+	public Purchase(User username, Cars id_cars, int amount, double price) {
 		super();
-		this.id_category = id_category;
+		this.username = username;
 		this.id_cars = id_cars;
 		this.amount = amount;
 		this.price = price;
@@ -41,19 +41,19 @@ public class Purchase {
 		super();
 	}
 
-	public int getId_category() {
-		return id_category;
+	public User getUsername() {
+		return username;
 	}
 
-	public void setId_category(int id_category) {
-		this.id_category = id_category;
+	public void setUsername(User username) {
+		this.username = username;
 	}
 
-	public int getId_cars() {
+	public Cars getId_cars() {
 		return id_cars;
 	}
 
-	public void setId_cars(int id_cars) {
+	public void setId_cars(Cars id_cars) {
 		this.id_cars = id_cars;
 	}
 
@@ -83,7 +83,7 @@ public class Purchase {
 
 	@Override
 	public String toString() {
-		return "Purchase [id_category=" + id_category + ", id_cars=" + id_cars + ", amount=" + amount + ", price="
+		return "Purchase [username=" + username + ", id_cars=" + id_cars + ", amount=" + amount + ", price="
 				+ price + ", date_of_purchase=" + date_of_purchase + "]";
 	}
 	
