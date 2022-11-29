@@ -45,8 +45,8 @@ public class login extends HttpServlet {
 		String user = request.getParameter("usuario");
 		String pass = getMD5(request.getParameter("contrasena")) ;
 		UserDao ud = new UserDao();
-		boolean b = ud.validateUser(user, pass);
-		User u=ud.findUser(user);
+		boolean b = UserDao.validateUser(user, pass);
+		User u=UserDao.findUser(user);
 		if (b) {
 			CarsDao cd=new CarsDao();
 			List<Cars>lista=cd.getCars();

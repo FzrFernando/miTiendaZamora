@@ -21,8 +21,11 @@
 	HttpSession sesion=request.getSession();
 	int idCar = Integer.parseInt(request.getParameter("name"));
 	int cant = Integer.parseInt(request.getParameter("cant"));
-	Cart c = new Cart();
-	c = (Cart) sesion.getAttribute("cart");
+	Cart c = (Cart) sesion.getAttribute("cart");
+	if (sesion.getAttribute("cart") == null) {
+		c = new Cart();
+		sesion.setAttribute("cart", c);
+	}
 	ItemCart ic = new ItemCart(idCar, cant);
 	c.addCart(ic);
 	CarsDao cd = new CarsDao();
@@ -52,7 +55,7 @@
 	<section class="button">
 			<form action="../login" method="post">
 				<input type="hidden" name="user" value="<%=sesion.getAttribute("usuario")%>">
-				<input type="hidden" name="pass" value="<%=sesion.getAttribute("password")%>">
+				<input type="hidden" name="pass" value="<%=sesion.getAttribute("contrasena")%>">
 				<input type="submit" value="Volver">
 			</form>
 		<button>
