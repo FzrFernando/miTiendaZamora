@@ -26,13 +26,13 @@ public class Cars {
 	private Category id_categoria;
 	
 
-	public Cars(int id, String nombre, String descripcion, double precio, int stock, Category id_categoria) {
+	public Cars(int id, String nombre, String descripcion, double precio, Category id_categoria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
-		this.stock = stock;
+		this.stock = 99;
 		this.id_categoria = id_categoria;
 	}
 	

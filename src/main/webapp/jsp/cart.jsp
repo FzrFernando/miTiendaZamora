@@ -19,7 +19,8 @@
 	</header>
 	<%
 	HttpSession sesion=request.getSession();
-	int idCar = Integer.parseInt(request.getParameter("name"));
+	String user=(String)sesion.getAttribute("usuario");
+	int idCar = Integer.parseInt(request.getParameter("id"));
 	int cant = Integer.parseInt(request.getParameter("cant"));
 	Cart c = (Cart) sesion.getAttribute("cart");
 	if (sesion.getAttribute("cart") == null) {

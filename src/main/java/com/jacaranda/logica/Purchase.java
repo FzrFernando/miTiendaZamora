@@ -10,15 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name="PURCHASE")
-@IdClass(PurchaseId.class)
+@IdClass(IdCart.class)
 public class Purchase {
 	@Id
 	@ManyToOne
-	@JoinColumn(name="username")
+	@JoinColumn(name="user",insertable = false, updatable = false)
 	private User username;
 	@Id
 	@ManyToOne
-	@JoinColumn(name="id_cars")
+	@JoinColumn(name="id_cars",insertable = false, updatable = false)
 	private Cars id_cars;
 	@Column(name="amount")
 	private int amount;

@@ -43,7 +43,7 @@ h1, label{
 	margin-left: 5%;
 }
 
-button{
+button, input{
 	text-decoration: none;
 	background-color: #B72929;
 	color: white;

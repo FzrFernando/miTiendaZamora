@@ -45,8 +45,8 @@ public class login extends HttpServlet {
 		String user = request.getParameter("usuario");
 		String pass = getMD5(request.getParameter("contrasena")) ;
 		UserDao ud = new UserDao();
-		boolean b = UserDao.validateUser(user, pass);
-		User u=UserDao.findUser(user);
+		boolean b = ud.validateUser(user, pass);
+		User u=ud.findUser(user);
 		if (b) {
 			CarsDao cd=new CarsDao();
 			List<Cars>lista=cd.getCars();
@@ -60,7 +60,7 @@ public class login extends HttpServlet {
 								+"<td>"+i.getId_categoria().getNombre() + "</td>"
 								+"<td>"+"<form action=\"./jsp/cart.jsp\">"
 								+"<input type=\"number\"min=\0\" name=\"cant\"placeholder=\"Intoduzca Cantidad\">"
-								+"<input type=\"hidden\" name=\"name\"value="+ i.getId()+">"
+								+"<input type=\"hidden\" name=\"id\"value="+ i.getId()+">"
 								+"<input type=\"submit\" value=\"Añadir al carrito\">"+"</form>"
 								+"</td>"
 								+"</tr>"

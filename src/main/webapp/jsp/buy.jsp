@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.jacaranda.logica.*"%>
 <%@ page import="com.jacaranda.accesoDatos.*"%>
-<%@page import="com.jacaranda.accesoDatos.UserDao"%>
 <!DOCTYPE html>
 <html>
 <head>

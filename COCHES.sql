@@ -148,7 +148,7 @@ INSERT INTO `CATEGORY` (`id`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `PURCHASE` (
-  `username` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `id_cars` int(11) NOT NULL,
   `amount` int(11) DEFAULT NULL,
   `price` decimal(9,2) DEFAULT NULL,
@@ -224,7 +224,7 @@ ALTER TABLE `CARS`
 -- Filtros para la tabla `PURCHASE`
 --
 ALTER TABLE `PURCHASE`
-  ADD CONSTRAINT `fk_purchase1` FOREIGN KEY (`username`) REFERENCES `CATEGORY` (`id`),
+  ADD CONSTRAINT `fk_purchase1` FOREIGN KEY (`username`) REFERENCES `USERS` (`username`),
   ADD CONSTRAINT `fk_purchase2` FOREIGN KEY (`id_cars`) REFERENCES `CARS` (`id`);
 COMMIT;
 
