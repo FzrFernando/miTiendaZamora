@@ -9,8 +9,13 @@
 <meta charset="UTF-8">
 <title>Buy</title>
 <link rel="icon" href="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" type="image/x-icon">
+<link rel="stylesheet" href="../css/buy.css">
 </head>
 <body>
+<div class="grid-container">
+	<header class="header">
+		<img src="https://www.gran-turismo.com/gtsport/decal/5125101880501896704_1.png" width=195px height=126px>
+	</header>
 	<%
 		HttpSession sesion = request.getSession();
 		String user = (String) sesion.getAttribute("usuario");
@@ -27,5 +32,12 @@
 			boolean cars = CarsDao.addCars(ca);
 		}
 	%>
+	<section class="middle">
+		<h1>Compra con éxito</h1>
+	</section>
+	<section class="footer">
+		<p>Esta empresa es totalmente legal y no se responsabiliza si encuentra a un empleado robando un coche</p>	
+	</section>
+</div>
 </body>
 </html>

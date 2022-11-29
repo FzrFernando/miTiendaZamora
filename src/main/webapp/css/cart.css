@@ -1,0 +1,74 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	height: 100vh;
+	overflow-y:hidden;
+}
+
+.grid-container{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 12fr 1fr;
+	grid-template-areas:
+	"header header header"
+	".	table	."
+	"footer footer footer";
+	height: 100vh;
+}
+
+.header{
+	background-color:  #818181;
+	border: 2px solid #474747;
+	grid-area: header;
+}
+
+section.form{
+	/*Estilo de la tabla*/
+	grid-area: table;
+}
+
+h1, label{
+	color: #641313;
+	font-weight: bold;
+}
+
+.form button, #boton{
+	text-decoration: none;
+	background-color: #B72929;
+	color: white;
+	font-weight: bold;
+	padding: 8px;
+	border:3px solid #641313;
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+section.footer{
+	/*Estilo del footer*/
+	background-color: #5E605D;
+	color: white;
+	grid-area:footer;
+}
+
+.footer p{
+	color: white;
+	text-align: center;
+}

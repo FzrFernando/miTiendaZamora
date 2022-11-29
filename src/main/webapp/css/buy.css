@@ -1,0 +1,44 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	height: 100vh;
+	overflow-y:hidden;
+}
+
+.grid-container{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 12fr 1fr;
+	grid-template-areas:
+	"header header header"
+	".	middle	."
+	"footer footer footer";
+	height: 100vh;
+}
+
+.header{
+	background-color:  #818181;
+	border: 2px solid #474747;
+	grid-area: header;
+}
+
+.middle{
+	grid-area: middle
+}
+
+h1{
+	color: #641313;
+	font-weight: bold;
+}
+
+section.footer{
+	/*Estilo del footer*/
+	background-color: #5E605D;
+	color: white;
+	grid-area:footer;
+}
+
+.footer p{
+	color: white;
+	text-align: center;
+}
